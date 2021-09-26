@@ -31,7 +31,7 @@ class BiliBili():
             return r.text
         except Exception as e:
             print(f"在get_root_page 函数发生了异常-》》》{e}")
-            return ''
+            exit()
 
     def get_data(self, txt):
         try:
@@ -41,6 +41,7 @@ class BiliBili():
             return data['data']
         except Exception as e:
             print(f"在get_data函数中发生了异常-》》》》{e}")
+            exit()
 
     def get_video(self):
         try:
@@ -50,6 +51,7 @@ class BiliBili():
                 f.write(r.content)
         except Exception as e:
             print(f"在get_video函数中遇到-》》》》{e}")
+            exit()
 
     def get_audio(self):
         try:
@@ -59,6 +61,7 @@ class BiliBili():
                 f.write(r.content)
         except Exception as e:
             print(f"在get_video函数中遇到-》》》》{e}")
+            exit()
 
     def V_A_to_mp4(self):
         shell = f"ffmpeg -i {self.path}/audio.m4s -i {self.path}/video.m4s {self.path}.mp4"
@@ -82,7 +85,7 @@ class BiliBili():
         b = self.get_data(a)
         quality = b['quality']  # 清晰度112:1080高码率，80：1080，64：720，32：480，16：360
         video_codecid = b['video_codecid']
-        timelength = b['timelength']  # 视频的时间毫秒为单位
+        #timelength = b['timelength']  # 视频的时间毫秒为单位
         dash = b['dash']
         video = dash['video']
         audio = dash['audio']

@@ -4,7 +4,7 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.common.action_chains import  ActionChains
 import json
 import requests
-#ÓÃÍ¼¼øµÇÂ¼boosÖ±Æ¸
+
 
 def base64_api( b64, typeid=27,uname='', pwd=''):
     data = {"username": uname, "password": pwd, "typeid": typeid, "image": b64}
